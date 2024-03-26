@@ -1,7 +1,11 @@
+import { useCart } from "../context/CartContext";
 import "./ProductCard.css";
 
 export const ProductCard = ({product}) => {
+  
+  const { addToCart } = useCart();
   const {name, price, image} = product;
+
 
   return (
     <div className="productCard">
@@ -9,7 +13,7 @@ export const ProductCard = ({product}) => {
       <p className="name">{name}</p>
       <div className="action">
         <p>${price}</p>
-        <button>Add To Cart</button>
+        <button onClick={() => addToCart(product)}>Add To Cart</button>
       </div>
     </div>
   )
